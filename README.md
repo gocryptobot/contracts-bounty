@@ -66,11 +66,11 @@ Each match has two lucky colors; this is an information that is given to the pla
 
 * Points calculation (actual smart contract)
 
-The total number of points that a part contributes is the sum of:
-   `Part’s level`
-   \+ `the sum of the skill level multiplied by 4, if the part has either of the two lucky colors`
-   \+ `the sum of the skill level, if the part has color effect of either of the two lucky colors`
-   \+ `the sum of the skill level, if the part has color chosen by the smart contract`
+The total number of points that a part contributes is the sum of:  
+   `Part’s level`  
+   \+ `the sum of the skill level multiplied by 4, if the part has either of the two lucky colors`  
+   \+ `the sum of the skill level, if the part has color effect of either of the two lucky colors`  
+   \+ `the sum of the skill level, if the part has color chosen by the smart contract`  
 
 
 ### Smart contract 2: ERC20 exchange
