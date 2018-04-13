@@ -51,7 +51,8 @@ Every contributor that has reported a bug that can be classified as P1, P2 and P
 
 ### Smart contract 1: PvP mode
 
-Admission condition
+#### Admission condition
+
 Each PvP match admits 128 cryptobots. The match is a competition among 4 teams and each teams has 32 cryptobots. The player has to choose one team to participate. Only the cryprotobots with their all 4 parts higher than level 5 are eligible for the match.
 
 #### Rules
