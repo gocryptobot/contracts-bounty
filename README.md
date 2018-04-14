@@ -63,7 +63,7 @@ The part of the cryptobot that you’re using for the match (either head, body, 
 
 * Lucky color
 
-Each match has two lucky colors; this is an information that is given to the players prior to the match. The smart contract chooses one as the luckier color (the probability is 0.5). Those parts that match the lucky color get extra points.
+Each match has two lucky colors; this is an information that is given to the players prior to the match. The smart contract chooses one as the luckier color (the probability is 0.5). Those parts that match the lucky color get extra points and the parts that match the lucky color chosen by the smart contract get additional extra points.
 
 * Points calculation (actual smart contract)
 
@@ -71,7 +71,7 @@ The total number of points that a part contributes is the sum of:
    `Part’s level`  
    \+ `the sum of the skill level multiplied by 4, if the part has either of the two lucky colors`  
    \+ `the sum of the skill level, if the part has color effect of either of the two lucky colors`  
-   \+ `the sum of the skill level, if the part has color chosen by the smart contract`  
+   \+ `the sum of the skill level, if the part has the locky color chosen by the smart contract`  
 
 
 ### Smart contract 2: ERC20 exchange
