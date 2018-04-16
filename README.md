@@ -51,11 +51,11 @@ Every contributor that has reported a bug that can be classified as P1, P2 and P
 
 ### Smart contract 1: PvP mode
 
-#### Admission condition
+#### Background Information 1: admission condition
 
 Each PvP match admits 128 cryptobots. The match is a competition among 4 teams and each teams has 32 cryptobots. The player has to choose one team to participate. Only the cryprotobots with their all 4 parts higher than level 5 are eligible for the match.
 
-#### Rules
+#### Background Information 2: rules
 
 * PvP points
 
@@ -65,13 +65,13 @@ The part of the cryptobot that you’re using for the match (either head, body, 
 
 Each match has two lucky colors; this is an information that is given to the players prior to the match. The smart contract chooses one as the luckier color (the probability is 0.5). Those parts that match the lucky color get extra points and the parts that match the lucky color chosen by the smart contract get additional extra points.
 
-* Points calculation (actual smart contract)
+#### Points calculation (actual smart contract)
 
 The total number of points that a part contributes is the sum of:  
    `Part’s level`  
    \+ `the sum of the skill level multiplied by 4, if the part has either of the two lucky colors`  
    \+ `the sum of the skill level, if the part has color effect of either of the two lucky colors`  
-   \+ `the sum of the skill level, if the part has the locky color chosen by the smart contract`  
+   \+ `the sum of the skill level, if the part has the lucky color chosen by the smart contract`  
 
 
 ### Smart contract 2: ERC20 exchange
