@@ -11,7 +11,7 @@ contract GoCryptobotScore is GoCryptobotRandom {
     // +---+---+
     //
     // C = Color, 0 ~ 4.
-    // L = Level, 0 ~ 4.
+    // L = Level, 0 ~ 8.
     //
     uint256 constant PART_SKILL_SIZE = 2;
 
@@ -30,7 +30,7 @@ contract GoCryptobotScore is GoCryptobotRandom {
     uint256 constant PART_BASE_SIZE = 1;
     uint256 constant PART_SIZE = PART_BASE_SIZE + 3 * PART_SKILL_SIZE;
 
-    // A player consists of theme color and 4 parts. (Total 29 bytes)
+    // A player consists of theme effect and 4 parts. (Total 29 bytes)
     //   1   2   3   4   5   6   7
     // Player
     // +---+
@@ -45,9 +45,9 @@ contract GoCryptobotScore is GoCryptobotRandom {
     // |         BOOSTER PART      |
     // +---+---+---+---+---+---+---+
     //
-    // C = Player's theme color, 0 ~ 4.
+    // C = Whether player's theme effect is enabled or not, 1 or 0.
     //
-    // The theme color is set to 1 ~ 4 iff the colors of each part are identical.
+    // The theme effect is set to 1 iff the theme of each part are identical.
     //
     uint256 constant PLAYER_BASE_SIZE = 1;
     uint256 constant PLAYER_SIZE = PLAYER_BASE_SIZE + PART_SIZE * 4;
@@ -68,7 +68,7 @@ contract GoCryptobotScore is GoCryptobotRandom {
         return uint8(data[partOffset + PART_BASE_SIZE + (skillIndex * PART_SKILL_SIZE) + 1]);
     }
 
-    function _getPlayerThemeColor(bytes data, uint playerOffset) internal pure returns(byte) {
+    function _getPlayerThemeEffect(bytes data, uint playerOffset) internal pure returns(byte) {
         return data[playerOffset + 0];
     }
 
@@ -88,11 +88,11 @@ contract GoCryptobotScore is GoCryptobotRandom {
                 minorSkillSum += _getPartSkillLevel(data, partOffset, i);
             }
         }
-        byte playerThemeColor = _getPlayerThemeColor(data, PLAYER_SIZE * playerIndex);
-        if (playerThemeColor == eventMajorColor || playerThemeColor == eventMinorColor) {
-            return level + (majorSkillSum * 6) + (minorSkillSum * 5);
+        byte playerThemeEffect = _getPlayerThemeEffect(data, PLAYER_SIZE * playerIndex);
+        if (playerThemeEffect != 0) {
+            return level + (majorSkillSum * 4) + (minorSkillSum * 2);
         } else {
-            return level + (majorSkillSum * 5) + (minorSkillSum * 4);
+            return level + (majorSkillSum * 3) + (minorSkillSum * 1);
         }
     }
 }
